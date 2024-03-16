@@ -27,7 +27,7 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 DJANGO_APPS = [
-    "jazzmin",
+    # "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -40,6 +40,8 @@ CUSTOM_APPS = [
     "common",
     "shop",
     "doctor",
+    "users",
+    "order",
 ]
 
 THIRD_PARTY_APPS = [
@@ -205,3 +207,6 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 
 AXES_FAILURE_LIMIT = 3  # Limit login attempts to 5
 AXES_COOLOFF_TIME = 0  # Lock out the user for 1 minute after reaching the limit
+
+
+AUTH_USER_MODEL = "users.User"

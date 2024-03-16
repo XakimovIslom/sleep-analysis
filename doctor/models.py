@@ -17,6 +17,7 @@ class Doctor(BaseModel):
     city = models.CharField(max_length=128)
     rating = models.IntegerField()
     patients = models.IntegerField()
+
     syptoms = models.ManyToManyField(Syptoms)
 
     def __str__(self):
@@ -25,14 +26,12 @@ class Doctor(BaseModel):
 
 class Booking(BaseModel):
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        blank=True,
-        null=True
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True
     )
     doctor = models.ForeignKey(
         Doctor, on_delete=models.CASCADE, related_name="appointments"
     )
+
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
